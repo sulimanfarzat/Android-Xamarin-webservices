@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:XamTest"
+             x:Class="XamTest.MainPage"
+              xmlns:ViewModels="clr-namespace:XamTest.ViewModels;assembly=XamTest"
+             Title="My Test">
+
+    <ContentPage.BindingContext>
+        <ViewModels:MainViewModel />
+    </ContentPage.BindingContext>
+
+
+    <StackLayout Orientation="Vertical">
+        <Button Text="Add new Employee" 
+                Clicked="Button_Clicked" />
+        <Button Text="Search Employee"
+                TextColor="White"
+                BackgroundColor="Purple" 
+                Clicked="Button_Clicked_1"/>
+        <ListView x:Name="EmployeesListView" ItemsSource="{Binding EmployeesList}"
+              HasUnevenRows="True"
+              ItemTapped="ListView_ItemTapped">
+
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Department}" />
+
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+    </StackLayout>
+
+</ContentPage>

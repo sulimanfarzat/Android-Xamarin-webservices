@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="XamTest.Views.NewEmployeePage"
+             xmlns:ViewModels="clr-namespace:XamTest.ViewModels;assembly=XamTest">
+
+
+    <ContentPage.BindingContext>
+        <ViewModels:MainViewModel />
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"
+                 Spacing="18">
+
+        <Label Text="Name" />
+        <Entry Text="{Binding SelectedEmployee.Name, Mode=TwoWay}" />
+
+        <Label Text="Department" />
+        <Entry Text="{Binding SelectedEmployee.Department, Mode=TwoWay}" />
+
+        <Button Text="POST Employee"
+                BackgroundColor="Green"
+                TextColor="White"
+                Command="{Binding PostCommand}"/>
+
+        <Button Text="PUT Employee"
+                BackgroundColor="Navy"
+                TextColor="White"
+                Command="{Binding PutCommand}"/>
+
+        <Button Text="DELETE Employee"
+                BackgroundColor="Maroon"
+                TextColor="White"
+                Command="{Binding DeleteCommand}"/>
+
+    </StackLayout>
+
+</ContentPage>
